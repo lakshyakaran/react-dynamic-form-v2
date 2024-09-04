@@ -1,7 +1,7 @@
 {
   "name": "react-dynamic-form-v2",
   "type": "module",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/react-dynamic-form-v2.cjs.js",
   "module": "dist/react-dynamic-form-v2.es.js",
   "types": "dist/index.d.ts",
@@ -23,6 +23,10 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "yup": "^1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lakshyakaran/react-dynamic-form-v2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
