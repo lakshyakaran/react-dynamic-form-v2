@@ -26,65 +26,65 @@ import React from 'react';
 import DynamicForm from 'react-dynamic-form-v2'; 
 
 const formJson = {
-  form_data: [
+  "form_data": [
     {
-      key: "name",
-      type: "input",
-        variant: "outlined",
-      props: {
-        placeholder: "Enter name",
-        pattern: "^[a-z A-Z 0-9\\s]{1,50}$",
-        type: "text",
-        required: true,
-        label: "Name",
-        minLength: 1,
-        maxLength: 50,
-      },
+      "key": "name",
+      "type": "input",
+      "variant": "outlined",
+      "props": {
+        "placeholder": "Enter name",
+        "pattern": "^[a-z A-Z 0-9\\s]{1,50}$",
+        "type": "text",
+        "required": true,
+        "label": "Name",
+        "minLength": 1,
+        "maxLength": 50
+      }
     },
     {
-      key: "address",
-      type: "select",
-      defaultValue: "",
-        variant: "filled",
-      props: {
-        label: "Location",
-        options: [
+      "key": "address",
+      "type": "select",
+      "defaultValue": "",
+      "variant": "filled",
+      "props": {
+        "label": "Location",
+        "options": [
           {
-            value: "d98ae5ae-aa15-45f7-9e8c-ad772ef09fac",
-            label: "--",
-          },
-        ],
-      },
+            "value": "d98ae5ae-aa15-45f7-9e8c-ad772ef09fac",
+            "label": "--"
+          }
+        ]
+      }
     },
     {
-      key: "email",
-      type: "input",
-          variant: "standard",
-      props: {
-        placeholder: "Enter email",
-        type: "text",
-        required: true,
-        pattern: "^[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[A-Za-z]{2,}$",
-        label: "Support Email",
-        minLength: 5,
-        maxLength: 100,
-      },
-    },
-  ],
+      "key": "email",
+      "type": "input",
+      "variant": "standard",
+      "props": {
+        "placeholder": "Enter email",
+        "type": "text",
+        "required": true,
+        "pattern": "^[A-Za-z0-9.]+@[A-Za-z0-9.]+\\.[A-Za-z]{2,}$",
+        "label": "Support Email",
+        "minLength": 5,
+        "maxLength": 100
+      }
+    }
+  ]
 };
 
- export default function App() {
+export default function App() {
   const onSubmit = (data) => {
     console.log("Form data: ", data);
   };
 
   return (
-    <div className="App">
-      <h1>Hello Dynamic Form</h1>
-      <DynamicForm formJson={formJson} buttonClick={onSubmit}>
-        <Button type="submit">Click</Button>
-      </DynamicForm>
-    </div>
+  <div className="App">
+    <h1>Hello Dynamic Form</h1>
+    <DynamicForm formJson={formJson} buttonClick={onSubmit}>
+      <Button type="submit">Click</Button>
+    </DynamicForm>
+  </div>
   );
 }
 ```
