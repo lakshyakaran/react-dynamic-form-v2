@@ -7,10 +7,20 @@ function App() {
     console.log("Form data =>", data);
   };
 
+  const breakpoints = {
+    xs: 12,
+    md: 6,
+    lg: 6
+  }
+
   return (
     <>
       <h2>Dynamic Form</h2>
-      <DynamicForm formJson={formJson} buttonClick={onSubmit}>
+      <DynamicForm
+        formJson={formJson}
+        buttonClick={onSubmit}
+        breakpoints={breakpoints}
+      >
         <button type='submit'>Submit</button>
       </DynamicForm>
     </>

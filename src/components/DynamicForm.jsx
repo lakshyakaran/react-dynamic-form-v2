@@ -2,8 +2,9 @@ import { useFormik } from "formik";
 import { DynamicFields } from "../utils/Fields";
 import { validationSchema } from "../utils/Validations";
 import PropTypes from 'prop-types';
+import { Grid2 } from "@mui/material";
 
-const DynamicForm = ({ formJson, buttonClick, children }) => {
+const DynamicForm = ({ formJson, buttonClick, children, breakpoints }) => {
     const initialValues = formJson?.form_data?.reduce((acc, field) => {
         acc[field.key] = field.defaultValue || "";
         return acc;
@@ -17,9 +18,11 @@ const DynamicForm = ({ formJson, buttonClick, children }) => {
 
     return (
         <form onSubmit={formik.handleSubmit}>
-            {formJson.form_data.map((field) => (
-                <DynamicFields key={field.key} formik={formik} field={field} />
-            ))}
+            <Grid2 container spacing={2}>
+                {formJson?.form_data?.map((field) => (
+                    <DynamicFields key={field.key} formik={formik} field={field} breakpoints={breakpoints} />
+                ))}
+            </Grid2>
             {children}
         </form>
     );
@@ -27,8 +30,9 @@ const DynamicForm = ({ formJson, buttonClick, children }) => {
 
 DynamicForm.propTypes = {
     formJson: PropTypes.any,
-    children: PropTypes.any,
-    buttonClick: PropTypes.func
+    buttonClick: PropTypes.func,
+    breakpoints: PropTypes.object,
+    children: PropTypes.any
 };
 
 export default DynamicForm;

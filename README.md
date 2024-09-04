@@ -78,17 +78,24 @@ export default function App() {
     console.log("Form data: ", data);
   };
 
+  const breakpoints = {
+    xs: 12,
+    md: 6,
+    lg: 6
+  };
+
   return (
   <div className="App">
     <h1>Hello Dynamic Form</h1>
-    <DynamicForm formJson={formJson} buttonClick={onSubmit}>
-      <Button type="submit">Click</Button>
+    <DynamicForm formJson={formJson} buttonClick={onSubmit} breakpoints={breakpoints}>
+      <Button type="submit">Submit</Button>
     </DynamicForm>
   </div>
   );
 }
 ```
-
+## Breakpoints
+`breakpoints` The breakpoints prop allows you to control how each field is displayed on different screen sizes (xs, md, lg, xl).
 
 ## JSON Schema
 The `formJson` object structure is as follows:

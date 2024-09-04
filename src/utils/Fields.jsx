@@ -1,77 +1,85 @@
-import { TextField, FormControl, Select, MenuItem, InputLabel, FormHelperText } from "@mui/material";
+import { TextField, FormControl, Select, MenuItem, InputLabel, FormHelperText, Grid2 } from "@mui/material";
 import PropTypes from 'prop-types';
 
-export const DynamicFields = ({ formik, field }) => {
+export const DynamicFields = ({ formik, field, breakpoints }) => {
+    const themeBreakpoints = breakpoints === undefined ? { lg: 4, md: 4, xs: 12 } : breakpoints;
+
     switch (field.type) {
         case "input":
             return (
-                <TextField
-                    key={field.key}
-                    label={field.props.label}
-                    type={field.props.type}
-                    name={field.key}
-                    variant={field.variant || "outlined"}
-                    placeholder={field.props.placeholder}
-                    value={formik.values[field.key]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={
-                        formik.touched[field.key] && Boolean(formik.errors[field.key])
-                    }
-                    helperText={formik.touched[field.key] && formik.errors[field.key]}
-                    fullWidth
-                    margin="normal"
-                />
+                <Grid2 size={themeBreakpoints}>
+                    <TextField
+                        key={field.key}
+                        label={field.props.label}
+                        type={field.props.type}
+                        name={field.key}
+                        variant={field.variant || "outlined"}
+                        placeholder={field.props.placeholder}
+                        value={formik.values[field.key]}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={
+                            formik.touched[field.key] && Boolean(formik.errors[field.key])
+                        }
+                        helperText={formik.touched[field.key] && formik.errors[field.key]}
+                        fullWidth
+                        margin="normal"
+                    />
+                </Grid2>
             );
         case "select":
             return (
-                <FormControl
-                    key={field.key}
-                    fullWidth
-                    margin="normal"
-                    error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
-                >
-                    <InputLabel htmlFor={field.key}>{field.props.label}</InputLabel>
-                    <Select
-                        id={field.key}
-                        name={field.key}
-                        value={formik.values[field.key]}
-                        onChange={formik.handleChange}
-                        variant={field.variant || "outlined"}
-                        onBlur={formik.handleBlur}
-                        label={field.props.label}
+                <Grid2 size={themeBreakpoints}>
+                    <FormControl
+                        key={field.key}
+                        fullWidth
+                        margin="normal"
+                        error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
                     >
-                        <MenuItem disabled value="">
-                            <em>Select {field.props.label}</em>
-                        </MenuItem>
-                        {field.props.options.map((option) => (
-                            <MenuItem key={option.value} value={option.value}>
-                                {option.label}
+                        <InputLabel htmlFor={field.key}>{field.props.label}</InputLabel>
+                        <Select
+                            id={field.key}
+                            name={field.key}
+                            value={formik.values[field.key]}
+                            onChange={formik.handleChange}
+                            variant={field.variant || "outlined"}
+                            onBlur={formik.handleBlur}
+                            label={field.props.label}
+                        >
+                            <MenuItem disabled value="">
+                                <em>Select {field.props.label}</em>
                             </MenuItem>
-                        ))}
-                    </Select>
-                    {formik.touched[field.key] && formik.errors[field.key] && (
-                        <FormHelperText>{formik.errors[field.key]}</FormHelperText>
-                    )}
-                </FormControl>
+                            {field.props.options.map((option) => (
+                                <MenuItem key={option.value} value={option.value}>
+                                    {option.label}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                        {formik.touched[field.key] && formik.errors[field.key] && (
+                            <FormHelperText>{formik.errors[field.key]}</FormHelperText>
+                        )}
+                    </FormControl>
+                </Grid2>
             );
         case "tel":
             return (
-                <TextField
-                    key={field.key}
-                    label={field.props.label}
-                    type="tel"
-                    name={field.key}
-                    variant={field.variant || "outlined"}
-                    placeholder={field.props.placeholder}
-                    value={formik.values[field.key]}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
-                    helperText={formik.touched[field.key] && formik.errors[field.key]}
-                    fullWidth
-                    margin="normal"
-                />
+                <Grid2 size={themeBreakpoints}>
+                    <TextField
+                        key={field.key}
+                        label={field.props.label}
+                        type="tel"
+                        name={field.key}
+                        variant={field.variant || "outlined"}
+                        placeholder={field.props.placeholder}
+                        value={formik.values[field.key]}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
+                        helperText={formik.touched[field.key] && formik.errors[field.key]}
+                        fullWidth
+                        margin="normal"
+                    />
+                </Grid2>
             );
         default:
             return null;
@@ -81,5 +89,6 @@ export const DynamicFields = ({ formik, field }) => {
 
 DynamicFields.propTypes = {
     formik: PropTypes.any,
-    field: PropTypes.any
+    field: PropTypes.any,
+    breakpoints: PropTypes.object
 };
