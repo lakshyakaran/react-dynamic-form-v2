@@ -10,6 +10,7 @@ export const DynamicFields = ({ formik, field }) => {
                     label={field.props.label}
                     type={field.props.type}
                     name={field.key}
+                    variant={field.variant || "outlined"}
                     placeholder={field.props.placeholder}
                     value={formik.values[field.key]}
                     onChange={formik.handleChange}
@@ -36,6 +37,7 @@ export const DynamicFields = ({ formik, field }) => {
                         name={field.key}
                         value={formik.values[field.key]}
                         onChange={formik.handleChange}
+                        variant={field.variant || "outlined"}
                         onBlur={formik.handleBlur}
                         label={field.props.label}
                     >
@@ -60,6 +62,7 @@ export const DynamicFields = ({ formik, field }) => {
                     label={field.props.label}
                     type="tel"
                     name={field.key}
+                    variant={field.variant || "outlined"}
                     placeholder={field.props.placeholder}
                     value={formik.values[field.key]}
                     onChange={formik.handleChange}

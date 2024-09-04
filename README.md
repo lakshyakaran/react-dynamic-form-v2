@@ -30,6 +30,7 @@ const formJson = {
     {
       key: "name",
       type: "input",
+        variant: "outlined",
       props: {
         placeholder: "Enter name",
         pattern: "^[a-z A-Z 0-9\\s]{1,50}$",
@@ -44,6 +45,7 @@ const formJson = {
       key: "address",
       type: "select",
       defaultValue: "",
+        variant: "filled",
       props: {
         label: "Location",
         options: [
@@ -57,6 +59,7 @@ const formJson = {
     {
       key: "email",
       type: "input",
+          variant: "standard",
       props: {
         placeholder: "Enter email",
         type: "text",
@@ -90,6 +93,7 @@ const formJson = {
 ## JSON Schema
 The `formJson` object structure is as follows:
 Each field object in the form_data array should contain:
+- variant: The variant of input (e.g., outlined, filled, standard) by default is outlined.
 - key: A unique identifier for the form field.
 - type: The type of input (e.g., input, select, tel).
 - props: An object containing the properties for the form field.
