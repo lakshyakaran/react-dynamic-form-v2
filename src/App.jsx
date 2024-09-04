@@ -10,7 +10,9 @@ function App() {
   return (
     <>
       <h2>Dynamic Form</h2>
-      <DynamicForm formJson={formJson} buttonClick={onSubmit} />
+      <DynamicForm formJson={formJson} buttonClick={onSubmit}>
+        <button type='submit'>Submit</button>
+      </DynamicForm>
     </>
   )
 }
