@@ -43,33 +43,6 @@ const formJson = {
       },
     },
     {
-      key: "keywords",
-      type: "input",
-      props: {
-        placeholder: "Enter keyword",
-        pattern: "^[a-z A-Z 0-9]{1,10}$",
-        type: "text",
-        label: "Keyword",
-        minLength: 0,
-        maxLength: 10,
-      },
-    },
-    {
-      key: "parent_organisation",
-      type: "select",
-      defaultValue: "company",
-      props: {
-        required: true,
-        label: "Parent Department",
-        options: [
-          {
-            value: "1244536c-ff21-4c78-afd9-b0b42ae7a42d",
-            label: "company",
-          },
-        ],
-      },
-    },
-    {
       key: "address",
       type: "select",
       defaultValue: "",
@@ -93,54 +66,69 @@ const formJson = {
       },
     },
     {
-      key: "email",
-      type: "input",
+      key: 'states',
+      type: 'autocomplete',
       props: {
-        placeholder: "Enter email",
-        type: "text",
+        label: 'States',
+        placeholder: 'Type to search',
         required: true,
-        label: "Support Email",
-        minLength: 5,
-        maxLength: 100,
+        options: [
+          'Alabama',
+          'Alaska',
+          'American Samoa',
+          'Arizona',
+          'Arkansas',
+          'California',
+          'Colorado',
+          'Connecticut',
+          'Delaware'
+        ],
       },
     },
     {
-      key: "accounting_code",
-      type: "input",
-      props: {
-        placeholder: "Enter cost center code",
-        // pattern: "^\\w$",
-        type: "text",
+      key: 'description',
+      type: 'textarea',
+      templateOptions: {
+        label: 'Description',
+        placeholder: 'Enter your comments',
         required: true,
-        label: "Cost Center Code",
-        minLength: 1,
-        maxLength: 10,
+        rows: 4,
+        cols: 50,
       },
     },
     {
-      key: "profit_center_code",
-      type: "input",
-      props: {
-        placeholder: "Enter locality",
-        type: "text",
+      key: 'dob',
+      type: 'date',
+      templateOptions: {
+        label: 'Date of Birth',
+        placeholder: 'Select your date of birth',
         required: true,
-        label: "Profit Center Code",
-        minLength: 1,
-        maxLength: 10,
+        minDate: '1900-01-01',
+        maxDate: '2023-12-31',
       },
     },
     {
-      key: "description",
-      type: "input",
-      props: {
-        placeholder: "Enter description",
-        type: "text",
-        label: "Description",
-        minLength: 0,
-        maxLength: 100,
+      key: 'gender',
+      type: 'radio',
+      templateOptions: {
+        label: 'Gender',
+        required: true,
+        options: [
+          { label: 'Male', value: 'male' },
+          { label: 'Female', value: 'female' },
+          // More options...
+        ],
       },
     },
-  ],
+    {
+      key: 'agreeTerms',
+      type: 'checkbox',
+      templateOptions: {
+        label: 'I agree to the terms and conditions',
+        required: true,
+      },
+    }
+  ]
 };
 
 

@@ -26,51 +26,113 @@ import React from 'react';
 import DynamicForm from 'react-dynamic-form-v2'; 
 
 const formJson = {
-  "form_data": [
-    {
-      "key": "name",
-      "type": "input",
-      "variant": "outlined",
-      "props": {
-        "placeholder": "Enter name",
-        "pattern": "^[a-z A-Z 0-9\\s]{1,50}$",
-        "type": "text",
-        "required": true,
-        "label": "Name",
-        "minLength": 1,
-        "maxLength": 50
+  "form_data":[
+   {
+      "key":"legal_name",
+      "type":"input",
+      "props":{
+         "placeholder":"Enter name",
+         "pattern":"^[a-z A-Z 0-9\\s]{1,50}$",
+         "type":"text",
+         "required":true,
+         "label":"Name",
+         "minLength":1,
+         "maxLength":50
       }
-    },
-    {
-      "key": "address",
-      "type": "select",
-      "defaultValue": "",
-      "variant": "filled",
-      "props": {
-        "label": "Location",
-        "options": [
-          {
-            "value": "d98ae5ae-aa15-45f7-9e8c-ad772ef09fac",
-            "label": "--"
-          }
-        ]
+   },
+   {
+      "key":"address",
+      "type":"select",
+      "defaultValue":"",
+      "props":{
+         "label":"Location",
+         "options":[
+            {
+               "value":"d98ae5ae-aa15-45f7-9e8c-ad772ef09fac",
+               "label":"Location Delhi"
+            }
+         ]
       }
-    },
-    {
-      "key": "email",
-      "type": "input",
-      "variant": "standard",
-      "props": {
-        "placeholder": "Enter email",
-        "type": "text",
-        "required": true,
-        "pattern": "^[A-Za-z0-9.]+@[A-Za-z0-9.]+\\.[A-Za-z]{2,}$",
-        "label": "Support Email",
-        "minLength": 5,
-        "maxLength": 100
+   },
+   {
+      "key":"telephone",
+      "type":"tel",
+      "defaultValue":"",
+      "props":{
+         "placeholder":"Enter mobile number",
+         "label":"Mobile"
       }
-    }
-  ]
+   },
+   {
+      "key":"states",
+      "type":"autocomplete",
+      "props":{
+         "label":"States",
+         "placeholder":"Type to search",
+         "required":true,
+         "options":[
+            "Alabama",
+            "Alaska",
+            "American Samoa",
+            "Arizona",
+            "Arkansas",
+            "California",
+            "Colorado",
+            "Connecticut",
+            "Delaware"
+         ]
+      }
+   },
+   {
+      "key":"description",
+      "type":"textarea",
+      "templateOptions":{
+         "label":"Description",
+         "placeholder":"Enter your comments",
+         "required":true,
+         "rows":4,
+         "cols":50
+      }
+   },
+   {
+      "key":"dob",
+      "type":"date",
+      "templateOptions":{
+         "label":"Date of Birth",
+         "placeholder":"Select your date of birth",
+         "required":true,
+         "minDate":"1900-01-01",
+         "maxDate":"2023-12-31"
+      }
+   },
+   {
+      "key":"gender",
+      "type":"radio",
+      "templateOptions":{
+         "label":"Gender",
+         "required":true,
+         "options":[
+            {
+               "label":"Male",
+               "value":"male"
+            },
+            {
+               "label":"Female",
+               "value":"female"
+            },
+            
+         ]
+      }
+   },
+   {
+      "key":"agreeTerms",
+      "type":"checkbox",
+      "templateOptions":{
+         "label":"I agree to the terms and conditions",
+         "required":true
+      }
+   }
+ ]
 };
 
 export default function App() {
@@ -99,6 +161,9 @@ export default function App() {
 
 ## JSON Schema
 The `formJson` object structure is as follows:
+
+### Common Field Properties:
+
 Each field object in the form_data array should contain:
 - variant: The variant of input (e.g., outlined, filled, standard) by default is outlined.
 - key: A unique identifier for the form field.
@@ -112,3 +177,15 @@ Each field object in the form_data array should contain:
 - maxLength: Maximum length for input.
 - pattern: A regex pattern for validation.
 - options: (For select fields) An array of option objects, each with a value and label.
+
+### Template Options (for Radio, Checkbox, Textarea, Date)
+
+For certain types like `radio`, `checkbox`, `textarea`, and `date`, the templateOptions are used:
+
+- label: The label for the field.
+- required: Boolean indicating whether the field is required.
+- options: (For `radio` and `checkbox`) Array of options, each with a `label` and `value`.
+- rows: (For `textarea`) Number of rows for the textarea.
+- cols: (For `textarea`) Number of columns for the textarea.
+- minDate: (For `date`) The minimum allowed date.
+- maxDate: (For `date`) The maximum allowed date.

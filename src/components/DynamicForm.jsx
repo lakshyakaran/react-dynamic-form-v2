@@ -6,9 +6,14 @@ import { Grid2 } from "@mui/material";
 
 const DynamicForm = ({ formJson, buttonClick, children, breakpoints }) => {
     const initialValues = formJson?.form_data?.reduce((acc, field) => {
-        acc[field.key] = field.defaultValue || "";
+        if (field.type === "checkbox") {
+            acc[field.key] = field.defaultValue || false;
+        } else {
+            acc[field.key] = field.defaultValue || "";
+        }
         return acc;
     }, {});
+
 
     const formik = useFormik({
         initialValues,
