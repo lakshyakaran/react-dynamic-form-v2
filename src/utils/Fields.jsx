@@ -105,6 +105,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                             <TextField
                                 {...params}
                                 label={field.props.label}
+                                variant={field.variant || 'outlined'}
                                 placeholder={field.props.placeholder}
                                 error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
                                 helperText={formik.touched[field.key] && formik.errors[field.key]}
@@ -120,6 +121,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                 <Grid2 size={themeBreakpoints}>
                     <FormControl
                         component="fieldset"
+                        fullWidth
                         error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
                     >
                         <FormControlLabel
@@ -147,6 +149,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     <FormControl
                         key={field.key}
                         component="fieldset"
+                        fullWidth
                         error={formik.touched[field.key] && Boolean(formik.errors[field.key])}
                     >
                         <RadioGroup
@@ -165,7 +168,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                             ))}
                         </RadioGroup>
                         {formik.touched[field.key] && formik.errors[field.key] && (
-                            <FormHelperText>{formik.errors[field.key]}</FormHelperText> // Display error message
+                            <FormHelperText>{formik.errors[field.key]}</FormHelperText>
                         )}
                     </FormControl>
                 </Grid2>
@@ -178,6 +181,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                         label={field.templateOptions.label}
                         name={field.key}
                         multiline
+                        variant={field.variant || 'outlined'}
                         rows={field.templateOptions.rows}
                         placeholder={field.templateOptions.placeholder}
                         value={formik.values[field.key]}
