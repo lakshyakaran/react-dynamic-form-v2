@@ -1,12 +1,25 @@
 {
   "name": "react-dynamic-form-v2",
   "type": "module",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "main": "dist/react-dynamic-form-v2.cjs.js",
   "module": "dist/react-dynamic-form-v2.es.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
+  ],
+  "description": "React library for dynamic form generation using MUI components and Formik",
+  "keywords": [
+    "react",
+    "dynamic form",
+    "formik",
+    "mui",
+    "material-ui",
+    "form generation",
+    "yup validation",
+    "react form",
+    "form builder",
+    "json form"
   ],
   "scripts": {
     "dev": "vite",
