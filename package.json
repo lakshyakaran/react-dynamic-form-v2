@@ -1,7 +1,7 @@
 {
   "name": "react-dynamic-form-v2",
   "type": "module",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "main": "dist/react-dynamic-form-v2.cjs.js",
   "module": "dist/react-dynamic-form-v2.es.js",
   "types": "dist/index.d.ts",
@@ -52,5 +52,9 @@
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
     "vite": "^5.4.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/lakshyakaran/react-dynamic-form-v2/issues"
+  },
+  "homepage": "https://github.com/lakshyakaran/react-dynamic-form-v2#readme"
 }
