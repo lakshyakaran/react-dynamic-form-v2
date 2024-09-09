@@ -1,7 +1,7 @@
 {
   "name": "react-dynamic-form-v2",
   "type": "module",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "main": "dist/react-dynamic-form-v2.cjs.js",
   "module": "dist/react-dynamic-form-v2.es.js",
   "types": "dist/index.d.ts",
@@ -56,5 +56,6 @@
   "bugs": {
     "url": "https://github.com/lakshyakaran/react-dynamic-form-v2/issues"
   },
-  "homepage": "https://github.com/lakshyakaran/react-dynamic-form-v2#readme"
+  "homepage": "https://github.com/lakshyakaran/react-dynamic-form-v2#readme",
+  "author": "Lakshya Karan"
 }
