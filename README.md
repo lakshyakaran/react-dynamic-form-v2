@@ -23,12 +23,12 @@ Here's a basic example of how to use the react-dynamic-form-v2 library:
 
 ```jsx 
 import React from 'react'; 
-import DynamicForm from 'react-dynamic-form-v2'; 
+import { DynamicForm } from 'react-dynamic-form-v2'; 
 
 const formJson = {
   "form_data":[
    {
-      "key":"legal_name",
+      "key":"name",
       "type":"input",
       "props":{
          "placeholder":"Enter name",
@@ -48,8 +48,8 @@ const formJson = {
          "label":"Location",
          "options":[
             {
-               "value":"d98ae5ae-aa15-45f7-9e8c-ad772ef09fac",
-               "label":"Location Delhi"
+               "value":"40acb6ff-3f2f-4b95-9ef9-c15c8d050bbe",
+               "label":"New Delhi"
             }
          ]
       }
@@ -147,15 +147,38 @@ export default function App() {
   };
 
   return (
-  <div className="App">
-    <h1>Hello Dynamic Form</h1>
-    <DynamicForm formJson={formJson} buttonClick={onSubmit} breakpoints={breakpoints}>
-      <Button type="submit">Submit</Button>
-    </DynamicForm>
-  </div>
+   <div className="App">
+      <h1>Hello Dynamic Form</h1>
+      <DynamicForm
+         formJson={formJson}
+         buttonClick={onSubmit}
+         breakpoints={breakpoints}
+         formValues={apiData}
+      >
+         <button type='submit'>Submit</button>
+      </DynamicForm>
+   </div>
   );
 }
 ```
+#### Form values
+
+To pre-populate form fields with data from an API, you can pass an `formValues` prop to the DynamicForm component. The keys in the `formValues` object should match the key values in the formJson to ensure correct field mapping.
+
+### Example of `formValues`:
+
+```javascript
+const apiData = {
+  legal_name: "Your name",
+  address: "test",
+  telephone: "+9190******23",
+  states: "Alaska",
+  description: "Test description",
+  dob: "1990-01-01",
+  gender: "male",
+};
+```
+
 ## Breakpoints
 `breakpoints` The breakpoints prop allows you to control how each field is displayed on different screen sizes (xs, md, lg, xl).
 
@@ -189,3 +212,15 @@ For certain types like `radio`, `checkbox`, `textarea`, and `date`, the template
 - cols: (For `textarea`) Number of columns for the textarea.
 - minDate: (For `date`) The minimum allowed date.
 - maxDate: (For `date`) The maximum allowed date.
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+### Explanation of Updates:
+- **`formValues` Prop**: The `formValues` object is added as a prop to `DynamicForm` to pre-populate the form fields. This is reflected in the example usage and explained in the documentation.
+- **Form Configuration**: Details about the structure of the `formJson` and how it can be used to define form fields dynamically.
+- **Breakpoints**: Added a section explaining how the `breakpoints` prop works to make the form responsive.
+
+Let me know if you want further adjustments!
