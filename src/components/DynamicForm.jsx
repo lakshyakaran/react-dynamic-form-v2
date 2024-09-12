@@ -4,8 +4,8 @@ import { validationSchema } from "../utils/Validations";
 import PropTypes from 'prop-types';
 import { Grid2 } from "@mui/material";
 
-const DynamicForm = ({ formJson, buttonClick, children, breakpoints }) => {
-    const initialValues = formJson?.form_data?.reduce((acc, field) => {
+const DynamicForm = ({ formJson, buttonClick, children, breakpoints, formValues }) => {
+    const initialValues = formValues || formJson?.form_data?.reduce((acc, field) => {
         if (field.type === "checkbox") {
             acc[field.key] = field.defaultValue || false;
         } else {
@@ -37,6 +37,7 @@ DynamicForm.propTypes = {
     formJson: PropTypes.any,
     buttonClick: PropTypes.func,
     breakpoints: PropTypes.object,
+    formValues: PropTypes.object,
     children: PropTypes.any
 };
 

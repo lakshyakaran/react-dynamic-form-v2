@@ -5,10 +5,15 @@ export const validationSchema = (formJson) =>
         formJson?.form_data?.reduce((acc, field) => {
             let schema;
 
-            // Special case for checkboxes (Boolean type)
             if (field.type === "checkbox") {
                 schema = Yup.boolean().oneOf([true], "This field is required");
-            } else {
+            }
+            else if (field.type === "tel") {
+                schema = Yup.string()
+                    .matches(/^[0-9]+$/, "Only numeric values are allowed") // Only numbers allowed
+                    .required("This field is required"); // Make it required if necessary
+            }
+            else {
                 // For other field types (e.g., input, select)
                 schema = Yup.string();
 

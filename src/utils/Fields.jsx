@@ -78,7 +78,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     <TextField
                         key={field.key}
                         label={field.props.label}
-                        type="tel"
+                        type="number"
                         name={field.key}
                         variant={field.variant || 'outlined'}
                         placeholder={field.props.placeholder}
@@ -89,6 +89,9 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                         helperText={formik.touched[field.key] && formik.errors[field.key]}
                         fullWidth
                         margin="normal"
+                        onKeyDown={(evt) => {
+                            validateNumber(evt)
+                        }}
                     />
                 </Grid2>
             );
@@ -99,6 +102,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                         key={field.key}
                         options={field.props.options}
                         getOptionLabel={(option) => option}
+                        value={formik.values[field.key] || null}
                         onChange={(e, value) => formik.setFieldValue(field.key, value)}
                         onBlur={formik.handleBlur}
                         renderInput={(params) => (
@@ -229,3 +233,13 @@ DynamicFields.propTypes = {
     field: PropTypes.any,
     breakpoints: PropTypes.object,
 };
+
+
+//Function to validate number.
+const validateNumber = (evt) => {
+    const keys = ["-", "+", "ArrowUp", "ArrowDown", ".", "e"]
+    if (
+        !(evt.key === "Backspace" || evt.key === "Tab" || evt.key === "ArrowLeft" || evt.key === "ArrowRight" || /\d/.test(evt.key)) || keys.includes(evt.key)) {
+        evt.preventDefault();
+    }
+}
