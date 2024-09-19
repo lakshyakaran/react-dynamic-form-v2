@@ -224,3 +224,10 @@ to discuss what you would like to change.
 - **Breakpoints**: Added a section explaining how the `breakpoints` prop works to make the form responsive.
 
 Let me know if you want further adjustments!
+
+
+## Buy Me a Coffee
+
+You can [buy me a coffee](https://www.buymeacoffee.com/lakshyakaran) if you like my work!
+
+![image description](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)

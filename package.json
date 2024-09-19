@@ -1,7 +1,7 @@
 {
   "name": "react-dynamic-form-v2",
   "type": "module",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/react-dynamic-form-v2.cjs.js",
   "module": "dist/react-dynamic-form-v2.es.js",
   "types": "dist/index.d.ts",
