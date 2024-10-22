@@ -1,3 +1,4 @@
+import React from 'react';
 import {
     TextField,
     FormControl,
@@ -15,10 +16,13 @@ import {
 import PropTypes from 'prop-types';
 
 export const DynamicFields = ({ formik, field, breakpoints }) => {
+
+    // Default breakpoints if none provided
     const themeBreakpoints = breakpoints || { lg: 4, md: 4, xs: 12 };
 
+    // Switch case to render different field types based on field.type
     switch (field.type) {
-        case 'input':
+        case 'input': // Text input field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <TextField
@@ -38,7 +42,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     />
                 </Grid2>
             );
-        case 'select':
+        case 'select': // Select dropdown field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <FormControl
@@ -72,7 +76,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     </FormControl>
                 </Grid2>
             );
-        case 'tel':
+        case 'tel': // Telephone number input field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <TextField
@@ -95,7 +99,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     />
                 </Grid2>
             );
-        case 'autocomplete':
+        case 'autocomplete': // Autocomplete field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <Autocomplete
@@ -120,7 +124,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     />
                 </Grid2>
             );
-        case 'checkbox':
+        case 'checkbox': // Checkbox field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <FormControl
@@ -147,7 +151,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                 </Grid2>
             );
 
-        case 'radio':
+        case 'radio': // Radio button group field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <FormControl
@@ -177,7 +181,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     </FormControl>
                 </Grid2>
             );
-        case 'textarea':
+        case 'textarea': // Textarea field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <TextField
@@ -198,7 +202,7 @@ export const DynamicFields = ({ formik, field, breakpoints }) => {
                     />
                 </Grid2>
             );
-        case 'date':
+        case 'date': // Date field
             return (
                 <Grid2 size={themeBreakpoints}>
                     <TextField

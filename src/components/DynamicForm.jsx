@@ -1,11 +1,17 @@
+import React from 'react';
 import { useFormik } from "formik";
 import { DynamicFields } from "../utils/Fields";
 import { validationSchema } from "../utils/Validations";
 import PropTypes from 'prop-types';
 import { Grid2 } from "@mui/material";
 
+
+
 const DynamicForm = ({ formJson, buttonClick, children, breakpoints, formValues }) => {
+
+    // Set initial form values based on formJson or use provided formValues
     const initialValues = formValues || formJson?.form_data?.reduce((acc, field) => {
+        // Checkbox fields default to false, other fields to an empty string
         if (field.type === "checkbox") {
             acc[field.key] = field.defaultValue || false;
         } else {
@@ -15,10 +21,11 @@ const DynamicForm = ({ formJson, buttonClick, children, breakpoints, formValues 
     }, {});
 
 
+    // useFormik to manage form state, validation, and submission
     const formik = useFormik({
-        initialValues,
-        validationSchema: validationSchema(formJson),
-        onSubmit: buttonClick,
+        initialValues, // Set initial values
+        validationSchema: validationSchema(formJson), // Apply validation schema generated from formJson
+        onSubmit: buttonClick, // Handle form submission
     });
 
     return (
@@ -33,6 +40,7 @@ const DynamicForm = ({ formJson, buttonClick, children, breakpoints, formValues 
     );
 };
 
+// Prop types to ensure correct types are passed to the component
 DynamicForm.propTypes = {
     formJson: PropTypes.any,
     buttonClick: PropTypes.func,
