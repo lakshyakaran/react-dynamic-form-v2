@@ -15,6 +15,41 @@ import {
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
+/*
+  COMPONENT: DynamicFields (for rendering individual form fields)
+  This component is responsible for rendering specific field types (input, select, checkbox, etc.) based on the configuration passed in `field` prop.
+
+  Props:
+    1. formik: Formik object for managing field state, values, and validation
+    2. field: JSON object containing the field type, label, options, etc.
+    3. breakpoints: Object to define the responsive layout for grid size
+
+  STEPS:
+    1. Determine the field type
+        - Switch case based on `field.type` (e.g., input, select, checkbox, radio)
+    2. Render the corresponding field component (e.g., TextField, Select, Checkbox, etc.)
+        - Use `formik` to bind the field value, handle change, and handle validation
+        - Apply `formik.errors` and `formik.touched` for field validation
+    3. Apply breakpoints (for responsive grid layout)
+    4. Handle special cases (like number validation, or custom input validation)
+    5. Render validation messages (if any errors are present for the field)
+*/
+
+// Step 1: Check the type of the field (e.g., input, select, checkbox)
+// Render corresponding MUI components (TextField, Select, Checkbox, etc.) based on `field.type`
+
+// Step 2: Bind formik values and handle form field changes and validation
+// Use `formik.values[field.key]` to get the current field value
+// Use `formik.handleChange` to update the form state on change
+// Use `formik.errors[field.key]` to display validation errors
+
+// Step 3: Apply responsive layout using `breakpoints` for the grid size
+
+// Step 4: Handle additional validation for specific field types (e.g., number fields)
+
+// Step 5: Display error messages if there are validation errors for the field
+
+
 export const DynamicFields = ({ formik, field, breakpoints }) => {
 
     // Default breakpoints if none provided

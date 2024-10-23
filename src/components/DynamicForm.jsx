@@ -5,7 +5,32 @@ import { validationSchema } from "../utils/Validations";
 import PropTypes from 'prop-types';
 import { Grid2 } from "@mui/material";
 
+/*
+  COMPONENT: DynamicForm (for rendering dynamic form elements)
+  This component dynamically renders form fields based on the provided `formJson`.
 
+  Props:
+    1. formJson: JSON object containing form field definitions and configurations
+    2. buttonClick: Callback function triggered on form submission
+    3. breakpoints: Object defining the breakpoints for responsive design
+    4. formValues: Optional, predefined form values (used to pre-fill the form fields)
+    5. children: Any additional components (like submit button) to render within the form
+
+  STEPS:
+    1. Initialize form state
+        - Use `formJson` to dynamically set the initial values for the form fields
+        - Handle checkbox field differently (default value to false)
+        - Set other field types to an empty string or their default values
+    2. Initialize form validation
+        - Use `formik` to manage form state, validation, and submission
+        - Apply validation schema based on `formJson` to handle form validations
+    3. Render dynamic form fields
+        - Use the `DynamicFields` component to render each field from `formJson`
+        - Pass `formik` (for managing field values) and `breakpoints` (for responsiveness)
+    4. Form submission
+        - On form submission, trigger the `buttonClick` function
+    5. Render children components (such as buttons or additional UI elements)
+*/
 
 const DynamicForm = ({ formJson, buttonClick, children, breakpoints, formValues }) => {
 
